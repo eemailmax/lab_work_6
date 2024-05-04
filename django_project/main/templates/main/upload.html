@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %} 
+{{ message }}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p><input type="file" name="file_upload"></p>
+    <p><button type="submit">upload</button></p>
+</form>
+{{ additional_message }}
+{% if additional_message != "Последний загруженный файл: не найден" %}
+<img src="../../static/uploads/rrr.png" alt="Последнее загруженное изображение"><br>
+<form method="post" action="{% url 'delete_upload_file' %}">
+    {% csrf_token %}
+    <button type="submit">Удалить запись</button>
+</form>
+{% endif %}
+{% endblock %}

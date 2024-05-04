@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %} 
+<h1 class="mb-4">Author: Markin Maksim</h1>
+<h4>&#9660;This is JSON&#9660;</h4>
+{% for key, value in InfoFromJson.items %}
+<p>{{ key }}: {{ value }}</p>
+{% endfor %}
+<form method="post" action="{% url 'get_json_author' %}">
+    {% csrf_token %}
+    <button class="glow-on-hover" type="submit">Return JSON</button>
+</form>
+{% endblock %}

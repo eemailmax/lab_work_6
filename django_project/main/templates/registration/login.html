@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %} 
+<div class="container h-100">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+      <div class="card bg-dark text-white" style="border-radius: 15px; border: 2px solid #66fcf1;">
+        <div class="card-body p-5">
+          <h2 class="text-uppercase text-center mb-5">LOG IN</h2>
+
+          <form method="post" id="form_sign_in">
+            {% csrf_token %}
+          <div class="col-auto mb-3">
+              <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                      <div class="input-group-text" style="border-radius: 5px 0px 0px 5px">@</div>
+                  </div>
+                  <input type="text" class="form-control inp_u" name="username" id="inlineFormInputGroup" placeholder="Login">
+              </div>
+          </div>
+
+          <div class="col-auto mb-3">
+              <div class="input-group mb-2">
+                  <input type="password" class="form-control inp_u" name="password" id="inlineFormInputGroup" placeholder="Password">
+              </div>
+          </div>
+          {{ form.errors}}
+          <div class="d-flex justify-content-center mt-5">
+            <a type="button" class="btn_reg" style="font-size: 1.5rem;padding: 1rem 3rem;color: #f4f4f4;text-transform: uppercase;" onclick="document.getElementById('form_sign_in').submit();">LOG IN</a>
+          </div>
+
+          <p class="text-center mt-2 mb-0">Don't have an account? <a href="/register" 
+              class="fw-bold text-white"><u>Register here</u></a></p>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
